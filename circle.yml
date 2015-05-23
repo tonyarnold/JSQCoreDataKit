@@ -1,0 +1,24 @@
+machine:
+  xcode:
+    version: "6.3.1"
+
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+
+test:
+  override:
+    - xctool
+      -reporter pretty
+      -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results-ios-framework.xml
+      -reporter plain:$CIRCLE_ARTIFACTS/xctool-ios-framework.log
+      CODE_SIGNING_REQUIRED=NO
+      CODE_SIGN_IDENTITY=
+      PROVISIONING_PROFILE=
+      -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
+      -sdk iphonesimulator
+      -workspace JSQCoreDataKit.xcworkspace
+      -scheme "JSQCoreDataKit"
+      build build-tests run-tests
+

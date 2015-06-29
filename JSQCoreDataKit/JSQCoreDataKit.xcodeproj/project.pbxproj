@@ -49,6 +49,9 @@
 		881219D71B361F13005E5AA7 /* SaveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTests.swift; sourceTree = "<group>"; };
 		881219D81B361F13005E5AA7 /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		8851E2DA1B37423000E875DC /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		90232F4D1B417FFC00B4DF7D /* UniversalBaseTarget.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UniversalBaseTarget.xcconfig; sourceTree = "<group>"; };
+		90232F4E1B417FFC00B4DF7D /* UniversalFrameworkTarget.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UniversalFrameworkTarget.xcconfig; sourceTree = "<group>"; };
+		90232F4F1B417FFC00B4DF7D /* UniversalTestTarget.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UniversalTestTarget.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		88002D451AB8F546001787DB = {
 			isa = PBXGroup;
 			children = (
+				90232F4C1B417FFC00B4DF7D /* Configuration */,
 				88002D511AB8F546001787DB /* JSQCoreDataKit */,
 				881219C41B361EAF005E5AA7 /* JSQCoreDataKitTests */,
 				88002D501AB8F546001787DB /* Products */,
@@ -138,6 +142,16 @@
 				881219C71B361EAF005E5AA7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90232F4C1B417FFC00B4DF7D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				90232F4D1B417FFC00B4DF7D /* UniversalBaseTarget.xcconfig */,
+				90232F4E1B417FFC00B4DF7D /* UniversalFrameworkTarget.xcconfig */,
+				90232F4F1B417FFC00B4DF7D /* UniversalTestTarget.xcconfig */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +311,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -321,7 +334,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -346,7 +358,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -362,7 +373,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -372,6 +382,7 @@
 		};
 		88002D661AB8F547001787DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90232F4E1B417FFC00B4DF7D /* UniversalFrameworkTarget.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -379,25 +390,21 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = JSQCoreDataKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hexedbits.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		88002D671AB8F547001787DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90232F4D1B417FFC00B4DF7D /* UniversalBaseTarget.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -405,30 +412,25 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = JSQCoreDataKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hexedbits.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		881219CC1B361EAF005E5AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90232F4F1B417FFC00B4DF7D /* UniversalTestTarget.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = JSQCoreDataKitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hexedbits.JSQCoreDataKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -437,11 +439,11 @@
 		};
 		881219CD1B361EAF005E5AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90232F4F1B417FFC00B4DF7D /* UniversalTestTarget.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = JSQCoreDataKitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hexedbits.JSQCoreDataKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
